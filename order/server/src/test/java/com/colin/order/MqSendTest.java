@@ -1,0 +1,23 @@
+package com.colin.order;
+
+import org.junit.Test;
+import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.util.Date;
+
+/**
+ * @author: BlueMelancholy
+ * 2019/10/6 18:32
+ * @desc:
+ */
+@Component
+public class MqSendTest extends OrderApplicationTests{
+    @Autowired
+    private AmqpTemplate amqpTemplate;
+    @Test
+    public void send(){
+        amqpTemplate.convertAndSend("myQueue","now" + new Date());
+    }
+}
