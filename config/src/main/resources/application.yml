@@ -22,4 +22,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: "*" #actuator/routes查看所有路由

@@ -13,8 +13,10 @@ import com.colin.product.server.service.ProductService;
 import com.colin.product.server.utils.ResultVOUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -39,7 +41,7 @@ public class ProductController {
      * @return
      */
     @GetMapping("/list")
-    public ResultVO<ProductVO> list() {
+    public ResultVO<ProductVO> list(HttpServletRequest request) {
         List<ProductInfo> productInfoList = productService.findUpAll();
         List<Integer> categoryTypeList = productInfoList.stream()
                 .map(ProductInfo::getCategoryType)
