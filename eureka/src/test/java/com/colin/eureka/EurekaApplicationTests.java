@@ -11,6 +11,14 @@ public class EurekaApplicationTests {
 
     @Test
     public void contextLoads() {
+        try {
+            int a = Integer.parseInt("123");
+        } catch (NumberFormatException e) {
+            System.out.println("wrong");
+            return;
+        }finally {
+            System.out.println("finally");
+        }
     }
 
 }

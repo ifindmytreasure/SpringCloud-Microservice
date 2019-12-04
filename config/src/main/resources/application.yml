@@ -8,7 +8,7 @@ spring:
           uri: https://github.com/ifindmytreasure/config-repo.git
           username: 17802532475@163.com
           password: zdwxfwby1230629
-          basedir: D:/configCenter
+          basedir: /home
   rabbitmq:
     host: 47.101.189.10
     port: 5672
@@ -17,7 +17,9 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka1:8761/eureka/,http://eureka2:8762/eureka/
+  instance:
+    prefer-ip-address: true
 management:
   endpoints:
     web:
